@@ -80,6 +80,10 @@ export class HomeComponent implements OnInit {
         this.courses = [];
     }
 
+    clearAllCoursesWithTN() {
+        this.coursesWithTN = [];
+    }
+
     addCourseToStudent() {
         const courseName = 'temp';
         this.courseService.addCourseToStudent(courseName, currentUserCredential);
