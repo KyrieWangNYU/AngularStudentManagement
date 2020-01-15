@@ -16,6 +16,11 @@ export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
     classeNameNeedToReg: string;
+    courseName: string;
+    courseLocation: string;
+    courseContent: string;
+    courseTeacher: string;
+    course: CourseDto;
 
     constructor(
         private principal: Principal,
@@ -87,5 +92,13 @@ export class HomeComponent implements OnInit {
     addCourseToStudent() {
         const courseName = 'temp';
         this.courseService.addCourseToStudent(courseName, currentUserCredential);
+    }
+
+    addCourse() {
+        this.course.courseName = this.courseName;
+        this.course.courseContent = this.courseContent;
+        this.course.courseLocation = this.courseLocation;
+        this.course.courseTeacher = this.courseTeacher;
+        this.courseService.add(this.course);
     }
 }
