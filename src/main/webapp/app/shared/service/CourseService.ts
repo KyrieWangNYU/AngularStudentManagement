@@ -17,7 +17,6 @@ export class CourseService {
     constructor(private http: HttpClient) {}
 
     getCourseInfo(): Observable<CourseDto[]> {
-        debugger;
         return this.http.get<CourseDto[]>(`${this.courseAddressUrl}`);
     }
 

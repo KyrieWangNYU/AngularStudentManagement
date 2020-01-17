@@ -19,8 +19,13 @@ export class HomeComponent implements OnInit {
     courseName: string;
     courseLocation: string;
     courseContent: string;
-    courseTeacher: string;
-    course: CourseDto;
+    teacherId: number;
+    course: CourseDto = {
+        courseName: '',
+        courseLocation: '',
+        courseContent: '',
+        teacherId: null
+    };
 
     constructor(
         private principal: Principal,
@@ -98,7 +103,11 @@ export class HomeComponent implements OnInit {
         this.course.courseName = this.courseName;
         this.course.courseContent = this.courseContent;
         this.course.courseLocation = this.courseLocation;
-        this.course.courseTeacher = this.courseTeacher;
-        this.courseService.add(this.course);
+        this.course.teacherId = this.teacherId;
+        this.courseService.add(this.course).subscribe();
+    }
+
+    deleteCourse(courseName: string) {
+        this.courseService.delete(courseName).subscribe();
     }
 }

@@ -35,7 +35,7 @@
                     <div>{{course.courseContent}}</div>
                     <div>{{course.teacherId}}</div>
                     <button (click)="addCourseToStudent()">注册课程</button>
-                    <button>删除课程</button>
+                    <button (click)="deleteCourse(course.courseName)">删除课程</button>
                  </div>
             </div>
         </div>
@@ -67,9 +67,9 @@
                 <span>课程内容</span><input type="text" [(ngModel)]="courseContent">
             </div>
             <div>
-                <span>课程老师</span><input type="string" [(ngModel)]="courseTeacher">
+                <span>课程老师</span><input type="number" [(ngModel)]="teacherId">
             </div>
-            <button (click)="addCourse()"> 创建 </button>
+            <button (click)="addCourse()">创建</button>
         </div>
 
         <!--<div *ngIf="isAuthenticated()">-->
