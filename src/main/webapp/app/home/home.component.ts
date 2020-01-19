@@ -105,6 +105,10 @@ export class HomeComponent implements OnInit {
         this.course.courseLocation = this.courseLocation;
         this.course.teacherId = this.teacherId;
         this.courseService.add(this.course).subscribe();
+        this.courseName = '';
+        this.courseContent = '';
+        this.courseLocation = '';
+        this.teacherId = null;
     }
 
     deleteCourse(courseName: string) {
